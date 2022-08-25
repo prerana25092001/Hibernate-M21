@@ -25,6 +25,7 @@ public class Client {
 		a1.setName("Prerana");
 		a1.setPassword("Pass@123");
 		
+		
 		em.persist(a1);
 		System.out.println("Get Information");
 		
