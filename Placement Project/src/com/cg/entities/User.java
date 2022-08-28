@@ -18,30 +18,16 @@ public class User implements Serializable
 	private static final long serialVersionUID=1L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="ID")
+	@Column(name="user_id")
 	private int id;
-	@Column(name="Name")
 	private String name;
-	@Column(name="TYPE")
 	private String type;
-	@Column(name="PASSWORD")
 	private String password;
 	
 	
-		public User() {
-		super();
-		this.id=id;
-		this.name=name;
-		this.type=type;
-		this.password=password;
-	}
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="Admin_Id")
+	@OneToOne(mappedBy="user")
  
-	
-		
-
+	  // getters and setters method
 	public int getId() {
 		return id;
 	}

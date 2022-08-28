@@ -2,9 +2,11 @@ package com.cg.entities;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name="ADMIN_INFO")
@@ -13,23 +15,14 @@ public class Admin implements Serializable
 	private static final long serialVersionUID=1L;
 	
 	@Id
-	@Column(name="ID")
 	private int id;
-	@Column(name="NAME")
 	private String name;
-	@Column(name="PASSWORD")
 	private String password;
-	public Admin()
-	{
-		super();
-	}
-	public Admin (int id, String name, String password) 
-	{
-		super();
-		this.id =id;
-		this.name=name;
-		this.password=password;
-	}
+	
+	@OneToOne(cascade=CascadeType.ALL)// it is used for connecting user and admin table
+	@JoinColumn(name="user_id")
+	
+	//getters and setters method
 	public int getId() {
 		return id;
 	}
